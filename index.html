@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wert Finance | Telecommunications & Hosting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           1. CSS VARIABLES & RESET
+           ========================================= */
+        :root {
+            /* Palette: Tech & Connectivity */
+            --primary-blue: #00A8CC; /* Cyan/Electric Blue */
+            --secondary-navy: #0B1C2C; /* Deep Tech Navy */
+            --accent-silver: #E0E0E0;
+            --bg-dark: #07121D;
+            --bg-white: #FFFFFF;
+            --text-main: #333333;
+            --text-light: #CCCCCC;
+            
+            --font-head: 'Rajdhani', sans-serif; /* Technical/Futuristic */
+            --font-body: 'Roboto', sans-serif;
+            
+            --container-width: 1200px;
+            --section-padding: 90px 0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-white);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-head);
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--secondary-navy);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        /* =========================================
+           2. UTILITIES
+           ========================================= */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 25px;
+        }
+
+        .text-center { text-align: center; }
+
+        .section-header {
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            display: block;
+            color: var(--primary-blue);
+            font-family: var(--font-head);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 35px;
+            background: linear-gradient(90deg, var(--secondary-navy) 0%, #1A3A5A 100%);
+            color: var(--bg-white);
+            font-family: var(--font-head);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            border: none;
+            cursor: pointer;
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+        }
+
+        .btn:hover {
+            background: var(--primary-blue);
+            color: var(--secondary-navy);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid var(--primary-blue);
+            color: var(--primary-blue);
+            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-blue);
+            color: var(--secondary-navy);
+        }
+
+        /* =========================================
+           3. HEADER
+           ========================================= */
+        header {
+            background-color: rgba(7, 18, 29, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 168, 204, 0.3);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-head);
+            font-size: 1.8rem;
+            color: var(--bg-white);
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--primary-blue);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        nav a {
+            color: var(--bg-white);
+            font-size: 1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-family: var(--font-head);
+        }
+
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+
+        /* =========================================
+           4. HERO SECTION
+           ========================================= */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(7, 18, 29, 0.8), rgba(7, 18, 29, 0.7)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--bg-white);
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0, 168, 204, 0.05) 2px,
+                rgba(0, 168, 204, 0.05) 4px
+            );
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            color: var(--bg-white);
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 25px;
+            text-shadow: 0 0 20px rgba(0, 168, 204, 0.5);
+        }
+
+        .hero p {
+            color: var(--accent-silver);
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* =========================================
+           5. ABOUT US
+           ========================================= */
+        .about {
+            padding: var(--section-padding);
+            background-color: var(--bg-white);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2.5rem;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            border: 2px solid var(--primary-blue);
+            padding: 10px;
+            background: var(--bg-white);
+        }
+
+        /* =========================================
+           6. SERVICES
+           ========================================= */
+        .services {
+            padding: var(--section-padding);
+            background-color: var(--bg-dark);
+            color: var(--bg-white);
+        }
+
+        .services .section-title {
+            color: var(--bg-white);
+        }
+
+        .services p {
+            color: var(--text-light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: rgba(255,255,255,0.03);
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-blue);
+            background: rgba(0, 168, 204, 0.05);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background-color: var(--primary-blue);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--bg-white);
+            margin-bottom: 15px;
+        }
+
+        /* =========================================
+           7. ADVANTAGES
+           ========================================= */
+        .advantages {
+            padding: var(--section-padding);
+            background-color: var(--bg-white);
+        }
+
+        .adv-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .adv-item {
+            text-align: center;
+            padding: 30px;
+            border: 1px solid #eee;
+            border-bottom: 4px solid var(--primary-blue);
+        }
+
+        .adv-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        /* =========================================
+           8. NETWORK (PROCESS)
+           ========================================= */
+        .process {
+            padding: var(--section-padding);
+            background-color: #F0F4F8;
+        }
+
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 60px;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        .step-num {
+            font-family: var(--font-head);
+            font-size: 3rem;
+            color: rgba(11, 28, 44, 0.1);
+            font-weight: 700;
+            margin-bottom: -20px;
+            position: relative;
+            z-index: 0;
+        }
+
+        .step-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* =========================================
+           9. CONTACT
+           ========================================= */
+        .contact {
+            padding: var(--section-padding);
+            background-color: var(--bg-white);
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            background: var(--bg-dark);
+            padding: 60px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+        }
+
+        .contact-info {
+            padding-right: 40px;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            color: var(--bg-white);
+        }
+
+        .contact-info h2 { color: var(--bg-white); }
+
+        .info-item {
+            margin-bottom: 30px;
+        }
+
+        .info-item h5 {
+            color: var(--primary-blue);
+            font-family: var(--font-head);
+            font-size: 1rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .info-item p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.05);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--bg-white);
+            outline: none;
+            transition: var(--transition);
+        }
+
+        input:focus, textarea:focus {
+            border-color: var(--primary-blue);
+            background: rgba(255,255,255,0.1);
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* =========================================
+           10. FOOTER
+           ========================================= */
+        footer {
+            background-color: #050E16;
+            color: #555;
+            padding: 60px 0;
+            text-align: center;
+            font-size: 0.85rem;
+            border-top: 1px solid #111;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+        @media (max-width: 900px) {
+            .hero h1 { font-size: 2.8rem; }
+            .about-grid, .contact-container { grid-template-columns: 1fr; }
+            .adv-grid, .process-steps { flex-direction: column; }
+            .contact-info { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.1); padding-right: 0; padding-bottom: 40px; margin-bottom: 40px; }
+            .nav-wrapper { flex-direction: column; gap: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">WERT <span>FINANCE</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#about">Company</a></li>
+                    <li><a href="#services">Telecom Solutions</a></li>
+                    <li><a href="#advantages">Infrastructure</a></li>
+                    <li><a href="#process">Deployment</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>The Infrastructure of <br> Digital Value</h1>
+            <p>Wert Finance delivers high-performance wired and wireless telecommunications and internet host services. We are the backbone of connectivity in Blumenau.</p>
+            <a href="#contact" class="btn">Upgrade Connectivity</a>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container about-grid">
+            <div class="about-text">
+                <span class="section-subtitle">Who We Are</span>
+                <h2 class="section-title">Connectivity & Hosting Excellence</h2>
+                <p>Located in Blumenau, Santa Catarina, WERT FINANCE LTDA is a specialized provider of telecommunications and computing infrastructure. Led by Guilherme De Souza Meirelles, we focus on delivering robust digital foundations for businesses.</p>
+                <p>Despite our name "Wert Finance" (implying Value Finance), our core expertise lies in "Wired and Wireless Telecommunications" and "Internet Host Services." We provide the critical data processing and hosting capabilities that financial, media, and tech companies rely on.</p>
+                <p>We combine German precision—a hallmark of the Blumenau region—with cutting-edge technology to offer secure, high-speed data transmission and reliable server hosting environments.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1558494949-ef526b0042a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Data Center Infrastructure">
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Our Capabilities</span>
+                <h2 class="section-title">Digital Solutions</h2>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">&#128225;</div> <h3>Telecommunications</h3>
+                    <p>We provide advanced wired and wireless telecom solutions, ensuring seamless connectivity for enterprise operations. From fiber optics to secure wireless networks.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">&#128421;</div> <h3>Internet Hosting</h3>
+                    <p>Our internet host services include dedicated servers, VPS, and cloud hosting optimized for high traffic and data processing needs.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">&#128187;</div> <h3>Data Processing</h3>
+                    <p>We offer computing infrastructure for complex data processing tasks, supporting media streaming distribution and social network backends.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="advantages" class="advantages">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Why Wert Finance</span>
+                <h2 class="section-title">The Connectivity Edge</h2>
+            </div>
+
+            <div class="adv-grid">
+                <div class="adv-item">
+                    <h4>Low Latency</h4>
+                    <p>Our infrastructure is optimized for speed, providing low-latency connections essential for financial trading and real-time data applications.</p>
+                </div>
+                <div class="adv-item">
+                    <h4>High Security</h4>
+                    <p>We implement rigorous security protocols for our hosting and telecom services, protecting your data integrity and network access.</p>
+                </div>
+                <div class="adv-item">
+                    <h4>Scalability</h4>
+                    <p>Whether you need a single dedicated server or a complex enterprise network, our solutions scale effortlessly as your business grows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Deployment</span>
+                <h2 class="section-title">Getting Connected</h2>
+            </div>
+
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <div class="step-content">
+                        <h3>Assessment</h3>
+                        <p>We analyze your bandwidth, storage, and processing requirements to design the optimal infrastructure.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <div class="step-content">
+                        <h3>Configuration</h3>
+                        <p>Our engineers configure your servers and network parameters, ensuring security compliance.</p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <div class="step-content">
+                        <h3>Deployment</h3>
+                        <p>We launch your services with 24/7 monitoring and support, ensuring maximum uptime.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="text-center">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2 class="section-title">Power Your Operations</h2>
+            </div>
+
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h5>Headquarters</h5>
+                        <p>BLUMENAU, SANTA CATARINA<br>Brazil</p>
+                    </div>
+                    
+                    <div class="info-item">
+                        <h5>Electronic Mail</h5>
+                        <p>info@wertfinance.pro</p>
+                    </div>
+
+                    <div class="info-item">
+                        <h5>Key Principal</h5>
+                        <p>Guilherme De Souza Meirelles</p>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <form action="#" method="POST">
+                        <input type="text" placeholder="Name / Company" required>
+                        <input type="email" placeholder="Email Address" required>
+                        <select>
+                            <option value="" disabled selected>Service Interest</option>
+                            <option value="Telecom">Telecommunications</option>
+                            <option value="Hosting">Web Hosting / Servers</option>
+                            <option value="Data">Data Processing</option>
+                        </select>
+                        <textarea placeholder="Describe your technical needs..."></textarea>
+                        <button type="submit" class="btn">Request Proposal</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 WERT FINANCE LTDA. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; color: #777;">Wired and Wireless Telecommunications | Internet Host Services</p>
+        </div>
+    </footer>
+
+</body>
+</html>
