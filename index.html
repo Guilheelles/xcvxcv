@@ -66,7 +66,7 @@
             <h1 style="font-size:36px">Number Generator</h1>
             <h2 style="font-size:18px">Author: Tkachenko Oleksiy</h2>
         </div>
-            <div class="inputNum"><input type="number" name="digital" value="100" placeholder="Please enter your digital" id="dig" max="9999"/><button style="font-size: 16px"><strong>Generate Numbers</strong></button></div>
+            <div class="inputNum"><input type="number" name="digital" value="100" placeholder="Please enter your digital" id="dig" oninput="if (this.value.lenght > 4) this.value = this.value.slice(0,5)"/><button style="font-size: 16px"><strong>Generate Numbers</strong></button></div>
         
     </div>
     <ul></ul>
@@ -113,4 +113,3 @@
     </script>
 </body>
 </html>
-
